@@ -26,8 +26,5 @@ public class Consulta {
 
     }
 
-    public double converteMoeda(double moedaInicial, double moedaFinal){
 
-        return moedaInicial * moedaFinal;
-    }
 }
