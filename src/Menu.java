@@ -11,6 +11,7 @@ public class Menu {
         System.out.println("5) Peso Argentino para Real Brasileiro");
         System.out.println("6) Real Brasileiro para Peso Argentino");
         System.out.println("7) Sair");
+        System.out.println("8) Consultar Histórico de Conversões");
 
         System.out.println("Escolha uma opção válida:");
     }

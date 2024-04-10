@@ -1,10 +1,13 @@
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Conversor {
+    List<Historico> historico = new ArrayList<>();
     @SerializedName("conversion_rates")
     private Map<String, Double> conversionRates;
 
@@ -12,7 +15,7 @@ public class Conversor {
         return conversionRates;
     }
 
-    public void  Converter(String moeda, String moedaConversao, String mensagem) throws IOException, InterruptedException {
+    public void  converter(String moeda, String moedaConversao, String mensagem) throws IOException, InterruptedException {
         Scanner leitura = new Scanner(System.in);
         Consulta consulta = new Consulta();
         Conversor consultaMoeda = consulta.buscaMoeda(moeda);
@@ -23,11 +26,23 @@ public class Conversor {
         System.out.println("----------------------------");
         System.out.println(mensagem);
         System.out.println(valor +" [" + moeda + "] corresponde ao valor final de " + valorConvertido + " [" + moedaConversao + "]");
+        Historico consultaRealizada = new Historico(moeda, moedaConversao, mensagem, valor, valorConvertido);
+        historico.add(consultaRealizada);
+
     }
 
     public double converterValor(double moedaInicial, double moedaFinal){
 
         return moedaInicial * moedaFinal;
+    }
+
+    public void mostrarHistorico(){
+        System.out.println("Histórico de Conversões");
+        for (Historico h : historico){
+            System.out.println("----------------------------------------------------------------------------------------------------");
+            System.out.println("Conversão de: " + h.getMoeda() + " | Valor a converter: " + h.getValor() + " | Para: " + h.getMoedaConversao() + " | Resultado da Conversão: " + h.getValorConvertido());
+
+        }
     }
 
 }
