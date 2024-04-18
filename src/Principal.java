@@ -1,4 +1,7 @@
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,21 +11,8 @@ public class Principal {
         Conversor conversor = new Conversor();
         Menu menu = new Menu();
 
-
         int opcao = 0;
 
-
-//
-//        Historico teste = new Historico("USD", "BRL", "Dólar para Real");
-//        Historico teste2 = new Historico("BRL", "USD", "Dólar para Real");
-//
-//        historico.add(teste);
-//        historico.add(teste2);
-
-//        for (Historico h : historico){
-//            System.out.println("------------------");
-//            System.out.println(h.getMensagem());
-//        }
 
         while (opcao != 7) {
 
